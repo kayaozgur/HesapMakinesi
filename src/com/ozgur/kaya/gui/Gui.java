@@ -16,8 +16,11 @@ import javax.swing.border.EmptyBorder;
 public class Gui extends JFrame {
 
 	JTextField textField;
-	int mSayı;
+	int mSayı1=0;
+	int mSayı2=0;
+	int sonuc=0;
 	String mIslem;
+	
 
 	public Gui() {
 		İnitPencere();
@@ -215,39 +218,116 @@ public class Gui extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				textField.setText("0");
+				mSayı1=0;
+				mIslem="";
 				
 			}
 		});
 
-		JButton buttunKarekok = new JButton("√");
-		islemPanel.add(buttunKarekok);
-		buttunKarekok.setFont(new Font("Arrial", 1, 18));
+		JButton buttonKarekok = new JButton("√");
+		islemPanel.add(buttonKarekok);
+		buttonKarekok.setFont(new Font("Arrial", 1, 18));
 
-		JButton buttunX = new JButton("X");
-		islemPanel.add(buttunX);
-		buttunX.setFont(new Font("Arrial", 1, 18));
+		JButton buttonX = new JButton("X");
+		islemPanel.add(buttonX);
+		buttonX.setFont(new Font("Arrial", 1, 18));
+		buttonX.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				islemeAl("x");
+				
+			}
+		});
+		
 
-		JButton buttunBolu = new JButton("÷");
-		islemPanel.add(buttunBolu);
-		buttunBolu.setFont(new Font("Arrial", 1, 18));
+		JButton buttonBolu = new JButton("÷");
+		islemPanel.add(buttonBolu);
+		buttonBolu.setFont(new Font("Arrial", 1, 18));
+		buttonBolu.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				islemeAl("÷");
+				
+			}
+		});
 
-		JButton buttunArti = new JButton("+");
-		islemPanel.add(buttunArti);
-		buttunArti.setFont(new Font("Arrial", 1, 18));
+		JButton buttonArti = new JButton("+");
+		islemPanel.add(buttonArti);
+		buttonArti.setFont(new Font("Arrial", 1, 18));
+		buttonArti.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				islemeAl("+");
+				
+			}
+		});
 
-		JButton buttunEksi = new JButton("-");
-		islemPanel.add(buttunEksi);
-		buttunEksi.setFont(new Font("Arrial", 1, 18));
+		JButton buttonEksi = new JButton("-");
+		islemPanel.add(buttonEksi);
+		buttonEksi.setFont(new Font("Arrial", 1, 18));
+		buttonEksi.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				islemeAl("-");
+				
+			}
+		});
 
-		JButton buttunEsit = new JButton("=");
-		islemPanel.add(buttunEsit);
-		buttunEsit.setFont(new Font("Arrial", 1, 18));
+		JButton buttonEsit = new JButton("=");
+		islemPanel.add(buttonEsit);
+		buttonEsit.setFont(new Font("Arrial", 1, 18));
+		buttonEsit.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				switch (mIslem) {
+				case "x":
+					mSayı2= Integer.parseInt(textField.getText());
+					sonuc= mSayı1*mSayı2;
+					textField.setText(String.valueOf(sonuc));
+					break;
+					
+				case "÷":
+					mSayı2= Integer.parseInt(textField.getText());
+					sonuc= mSayı1/mSayı2;
+					textField.setText(String.valueOf(sonuc));
+					break;
+					
+				case "+":
+					mSayı2= Integer.parseInt(textField.getText());
+					sonuc= mSayı1+mSayı2;
+					textField.setText(String.valueOf(sonuc));
+					break;
+					
+				case "-":
+					mSayı2= Integer.parseInt(textField.getText());
+					sonuc= mSayı1-mSayı2;
+					textField.setText(String.valueOf(sonuc));
+					break;
+
+				default:
+					break;
+				}
+				
+			}
+		});
 
 		JButton buttunYuzde = new JButton("%");
 		islemPanel.add(buttunYuzde);
 		buttunYuzde.setFont(new Font("Arrial", 1, 18));
 
 		return panel;
+	}
+
+	protected void islemeAl(String i) {
+		mSayı1= Integer.parseInt(textField.getText());
+		mIslem=i;
+		textField.setText("0");
+		
 	}
 
 	protected void yaz(String s) {
