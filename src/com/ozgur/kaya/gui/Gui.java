@@ -239,7 +239,7 @@ public class Gui extends JFrame {
 			}
 		});
 
-		JButton buttonX = new JButton("X");
+		JButton buttonX = new JButton("x");
 		islemPanel.add(buttonX);
 		buttonX.setFont(new Font("Arrial", 1, 18));
 		buttonX.addActionListener(new ActionListener() {
