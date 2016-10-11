@@ -34,6 +34,7 @@ public class Gui extends JFrame {
 		JPanel panel = İnitPanel();
 
 		add(panel);
+		setTitle("My Calculator");
 		setLocationRelativeTo(null);
 		setVisible(true);
 		setResizable(true);
