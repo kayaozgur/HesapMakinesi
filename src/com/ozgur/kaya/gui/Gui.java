@@ -231,6 +231,14 @@ public class Gui extends JFrame {
 		JButton buttonKarekok = new JButton("√");
 		islemPanel.add(buttonKarekok);
 		buttonKarekok.setFont(new Font("Arrial", 1, 18));
+		buttonKarekok.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				mSayı1= Double.parseDouble(textField.getText());
+				textField.setText(String.valueOf(Math.sqrt(mSayı1)));
+			}
+		});
 
 		JButton buttonX = new JButton("X");
 		islemPanel.add(buttonX);
