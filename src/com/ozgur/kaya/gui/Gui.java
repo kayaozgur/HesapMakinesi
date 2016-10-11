@@ -16,15 +16,14 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 public class Gui extends JFrame {
-	
+
 	NumberFormat format = new DecimalFormat("##,###.##");
 
 	JTextField textField;
-	double mSayı1=0;
-	double mSayı2=0;
-	double sonuc=0;
+	double mSayı1 = 0;
+	double mSayı2 = 0;
+	double sonuc = 0;
 	String mIslem;
-	
 
 	public Gui() {
 		İnitPencere();
@@ -198,7 +197,7 @@ public class Gui extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+
 				if (textField.getText().indexOf(".") == -1) {
 
 					if ("0".equals(textField.getText())) {
@@ -207,7 +206,7 @@ public class Gui extends JFrame {
 						textField.setText(textField.getText() + ".");
 
 				}
-		        	}
+			}
 		});
 
 		JPanel islemPanel = new JPanel(new GridLayout(4, 2));
@@ -218,13 +217,13 @@ public class Gui extends JFrame {
 		islemPanel.add(buttonC);
 		buttonC.setFont(new Font("Arrial", 1, 18));
 		buttonC.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				textField.setText("0");
-				mSayı1=0;
-				mIslem="";
-				
+				mSayı1 = 0;
+				mIslem = "";
+
 			}
 		});
 
@@ -232,10 +231,10 @@ public class Gui extends JFrame {
 		islemPanel.add(buttonKarekok);
 		buttonKarekok.setFont(new Font("Arrial", 1, 18));
 		buttonKarekok.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				mSayı1= Double.parseDouble(textField.getText());
+				mSayı1 = Double.parseDouble(textField.getText());
 				textField.setText(String.valueOf(Math.sqrt(mSayı1)));
 			}
 		});
@@ -244,24 +243,23 @@ public class Gui extends JFrame {
 		islemPanel.add(buttonX);
 		buttonX.setFont(new Font("Arrial", 1, 18));
 		buttonX.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				islemeAl("x");
-				
+
 			}
 		});
-		
 
 		JButton buttonBolu = new JButton("÷");
 		islemPanel.add(buttonBolu);
 		buttonBolu.setFont(new Font("Arrial", 1, 18));
 		buttonBolu.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				islemeAl("÷");
-				
+
 			}
 		});
 
@@ -269,11 +267,11 @@ public class Gui extends JFrame {
 		islemPanel.add(buttonArti);
 		buttonArti.setFont(new Font("Arrial", 1, 18));
 		buttonArti.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				islemeAl("+");
-				
+
 			}
 		});
 
@@ -281,11 +279,11 @@ public class Gui extends JFrame {
 		islemPanel.add(buttonEksi);
 		buttonEksi.setFont(new Font("Arrial", 1, 18));
 		buttonEksi.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				islemeAl("-");
-				
+
 			}
 		});
 
@@ -293,38 +291,38 @@ public class Gui extends JFrame {
 		islemPanel.add(buttonEsit);
 		buttonEsit.setFont(new Font("Arrial", 1, 18));
 		buttonEsit.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				switch (mIslem) {
 				case "x":
-					mSayı2= Double.parseDouble(textField.getText());
-					sonuc= mSayı1*mSayı2;
+					mSayı2 = Double.parseDouble(textField.getText());
+					sonuc = mSayı1 * mSayı2;
 					textField.setText(String.valueOf(sonuc));
 					break;
-					
+
 				case "÷":
-					mSayı2= Double.parseDouble(textField.getText());
-					sonuc= mSayı1/mSayı2;
+					mSayı2 = Double.parseDouble(textField.getText());
+					sonuc = mSayı1 / mSayı2;
 					textField.setText(String.valueOf(sonuc));
 					break;
-					
+
 				case "+":
-					mSayı2= Double.parseDouble(textField.getText());
-					sonuc= mSayı1+mSayı2;
+					mSayı2 = Double.parseDouble(textField.getText());
+					sonuc = mSayı1 + mSayı2;
 					textField.setText(String.valueOf(sonuc));
 					break;
-					
+
 				case "-":
-					mSayı2= Double.parseDouble(textField.getText());
-					sonuc= mSayı1-mSayı2;
+					mSayı2 = Double.parseDouble(textField.getText());
+					sonuc = mSayı1 - mSayı2;
 					textField.setText(String.valueOf(sonuc));
 					break;
 
 				default:
 					break;
 				}
-				
+
 			}
 		});
 
@@ -336,10 +334,10 @@ public class Gui extends JFrame {
 	}
 
 	protected void islemeAl(String i) {
-		mSayı1= Double.parseDouble(textField.getText());
-		mIslem=i;
+		mSayı1 = Double.parseDouble(textField.getText());
+		mIslem = i;
 		textField.setText("0");
-		
+
 	}
 
 	protected void yaz(String s) {
