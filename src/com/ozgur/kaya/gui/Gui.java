@@ -20,9 +20,9 @@ public class Gui extends JFrame {
 	NumberFormat format = new DecimalFormat("##,###.##");
 
 	JTextField textField;
-	int mSayı1=0;
-	int mSayı2=0;
-	int sonuc=0;
+	double mSayı1=0;
+	double mSayı2=0;
+	double sonuc=0;
 	String mIslem;
 	
 
@@ -191,7 +191,7 @@ public class Gui extends JFrame {
 			}
 		});
 
-		JButton buttonVirgul = new JButton(",");
+		JButton buttonVirgul = new JButton(".");
 		buttonPanel.add(buttonVirgul);
 		buttonVirgul.setFont(new Font("Arrial", 1, 18));
 		buttonVirgul.addActionListener(new ActionListener() {
@@ -199,12 +199,12 @@ public class Gui extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				if (textField.getText().indexOf(",") == -1) {
+				if (textField.getText().indexOf(".") == -1) {
 
 					if ("0".equals(textField.getText())) {
-						textField.setText("0,");
+						textField.setText("0.");
 					} else
-						textField.setText(textField.getText() + ",");
+						textField.setText(textField.getText() + ".");
 
 				}
 		        	}
@@ -290,25 +290,25 @@ public class Gui extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				switch (mIslem) {
 				case "x":
-					mSayı2= Integer.parseInt(textField.getText());
+					mSayı2= Double.parseDouble(textField.getText());
 					sonuc= mSayı1*mSayı2;
-					textField.setText(format.format(sonuc));
+					textField.setText(String.valueOf(sonuc));
 					break;
 					
 				case "÷":
-					mSayı2= Integer.parseInt(textField.getText());
+					mSayı2= Double.parseDouble(textField.getText());
 					sonuc= mSayı1/mSayı2;
 					textField.setText(String.valueOf(sonuc));
 					break;
 					
 				case "+":
-					mSayı2= Integer.parseInt(textField.getText());
+					mSayı2= Double.parseDouble(textField.getText());
 					sonuc= mSayı1+mSayı2;
 					textField.setText(String.valueOf(sonuc));
 					break;
 					
 				case "-":
-					mSayı2= Integer.parseInt(textField.getText());
+					mSayı2= Double.parseDouble(textField.getText());
 					sonuc= mSayı1-mSayı2;
 					textField.setText(String.valueOf(sonuc));
 					break;
@@ -328,7 +328,7 @@ public class Gui extends JFrame {
 	}
 
 	protected void islemeAl(String i) {
-		mSayı1= Integer.parseInt(textField.getText());
+		mSayı1= Double.parseDouble(textField.getText());
 		mIslem=i;
 		textField.setText("0");
 		
