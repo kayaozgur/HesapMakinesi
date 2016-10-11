@@ -5,6 +5,8 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -14,6 +16,8 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 public class Gui extends JFrame {
+	
+	NumberFormat format = new DecimalFormat("##,###.##");
 
 	JTextField textField;
 	int mSayı1=0;
@@ -288,7 +292,7 @@ public class Gui extends JFrame {
 				case "x":
 					mSayı2= Integer.parseInt(textField.getText());
 					sonuc= mSayı1*mSayı2;
-					textField.setText(String.valueOf(sonuc));
+					textField.setText(format.format(sonuc));
 					break;
 					
 				case "÷":
